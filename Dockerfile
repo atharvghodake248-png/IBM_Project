@@ -1,11 +1,13 @@
-FROM python:3.8-slim-buster
+FROM node:18.12.1-bullseye-slim
 
+RUN npm install -g npm@9.1.3
 
-WORKDIR /python-docker
+ADD package.json .
+ADD server.js .
+ADD utils/dealers.json /utils/dealers.json
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+RUN npm install
 
-COPY . .
+EXPOSE 8080
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "-p", "5001"]
+CMD [ "npm", "start" ]
