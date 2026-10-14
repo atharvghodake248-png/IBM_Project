@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products Price Comparison</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 760px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f4f7fb;
+      color: #222;
+    }
+    h1 { color: #174a7e; }
+    select {
+      padding: 10px;
+      width: 100%;
+      max-width: 420px;
+      margin-top: 8px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      background: white;
+    }
+    .section {
+      margin: 22px 0;
+      padding: 18px;
+      background: white;
+      border-radius: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 15px;
+      background: white;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th { background: #d6eeee; }
+    #status { color: #a22; }
+  </style>
+</head>
+<body>
+  <h1>Products Price Comparison</h1>
+
+  <div class="section">
+    <label for="selProd">Select Product</label><br>
+    <select id="selProd">
+      <option value="">Loading products...</option>
+    </select>
+  </div>
+
+  <div class="section">
+    <label for="selDealer">Select Dealer</label><br>
+    <select id="selDealer" disabled>
+      <option value="">Select a product first</option>
+    </select>
+  </div>
+
+  <div class="section">
+    <h2>Price Details</h2>
+    <p id="status">Loading product list...</p>
+    <div id="pricing"></div>
+  </div>
+
+  <script>
+    const produrl = "http://127.0.0.1:5000/";
+    const dealerurl = "http://127.0.0.1:8081/";
+
+    const productSelect = document.getElementById("selProd");
+    const dealerSelect = document.getElementById("selDealer");
+    const pricing = document.getElementById("pricing");
+    const status = document.getElementById("status");
+
+    function addOption(select, value, text) {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = text;
+      select.appendChild(option);
+    }
+
+    async function loadProducts() {
+      try {
+        const response = await axios.get(produrl + "products");
+        productSelect.replaceChildren();
+        addOption(productSelect, "", "-- Select Product --");
+
+        response.data.products.forEach(product => {
+          addOption(productSelect, product, product);
+        });
+
+        status.textContent = "Select a product to compare prices.";
+      } catch (error) {
+        status.textContent =
+          "Cannot load products. Make sure the Product API is running on port 5000.";
+      }
+    }
+
+    async function loadDealers() {
+      const product = productSelect.value;
+      dealerSelect.replaceChildren();
+      pricing.replaceChildren();
+
+      if (!product) {
+        dealerSelect.disabled = true;
+        addOption(dealerSelect, "", "Select a product first");
+        status.textContent = "Select a product first.";
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          produrl + "getdealers/" + encodeURIComponent(product)
+        );
+
+        dealerSelect.disabled = false;
+        addOption(dealerSelect, "", "-- Select Dealer --");
+
+        response.data.dealers.forEach(dealer => {
+          addOption(dealerSelect, dealer, dealer);
+        });
+
+        addOption(dealerSelect, "All Dealers", "All Dealers");
+        status.textContent = "Dealers supplying " + product + " are listed.";
+      } catch (error) {
+        status.textContent = "Could not load dealers.";
+      }
+    }
+
+    async function showPrice() {
+      const product = productSelect.value;
+      const dealer = dealerSelect.value;
+      pricing.replaceChildren();
+
+      if (!product || !dealer) {
+        status.textContent = "Select a dealer to view prices.";
+        return;
+      }
+
+      try {
+        if (dealer !== "All Dealers") {
+          const response = await axios.get(
+            dealerurl + "price/" + encodeURIComponent(dealer) +
+            "/" + encodeURIComponent(product)
+          );
+          status.textContent = dealer + " price for " + product + ":";
+          const result = document.createElement("h2");
+          result.textContent = response.data.message;
+          pricing.appendChild(result);
+        } else {
+          const response = await axios.get(
+            dealerurl + "allprice/" + encodeURIComponent(product)
+          );
+
+          const table = document.createElement("table");
+          const header = document.createElement("tr");
+          ["Dealer", "Price"].forEach(label => {
+            const th = document.createElement("th");
+            th.textContent = label;
+            header.appendChild(th);
+          });
+          table.appendChild(header);
+
+          response.data.prices.forEach(item => {
+            const tr = document.createElement("tr");
+            const dealerCell = document.createElement("td");
+            const priceCell = document.createElement("td");
+            dealerCell.textContent = item.key;
+            priceCell.textContent = item.value;
+            tr.append(dealerCell, priceCell);
+            table.appendChild(tr);
+          });
+
+          pricing.appendChild(table);
+          status.textContent = "Price comparison for " + product;
+        }
+      } catch (error) {
+        status.textContent = "Could not retrieve prices. Check that Dealer API is running on port 8080.";
+      }
+    }
+
+    productSelect.addEventListener("change", loadDealers);
+    dealerSelect.addEventListener("change", showPrice);
+    loadProducts();
+  </script>
+</body>
+</html>
