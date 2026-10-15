@@ -1,0 +1,5 @@
+﻿COMMAND:
+curl.exe -sS -X POST "http://localhost:8081/login" -H "Content-Type: application/json" --data-binary "@login_request.json"
+
+OUTPUT:
+{"message":"Login successful","username":"testuser"}
