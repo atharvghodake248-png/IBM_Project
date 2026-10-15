@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Local dependencies, databases, and temporary backups
+node_modules/
+staticfiles/
+*.before_finalfix_*
+fix-backup-*/
+backup_before_api_fix_*/

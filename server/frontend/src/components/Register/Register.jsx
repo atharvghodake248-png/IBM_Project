@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -41,23 +41,23 @@ export default function Register() {
       <h2 style={{ textAlign: "center" }}>Sign-up</h2>
       <form onSubmit={handleSubmit}>
         <label>Username</label>
-        <input style={inputStyle} name="username" value={form.username}
+        <input style={inputStyle} name="username" placeholder="Username" value={form.username}
           onChange={handleChange} required />
 
         <label>First Name</label>
-        <input style={inputStyle} name="firstName" value={form.firstName}
+        <input style={inputStyle} name="firstName" placeholder="First Name" value={form.firstName}
           onChange={handleChange} required />
 
         <label>Last Name</label>
-        <input style={inputStyle} name="lastName" value={form.lastName}
+        <input style={inputStyle} name="lastName" placeholder="Last Name" value={form.lastName}
           onChange={handleChange} required />
 
         <label>Email</label>
-        <input style={inputStyle} type="email" name="email" value={form.email}
+        <input style={inputStyle} type="email" name="email" placeholder="Email" value={form.email}
           onChange={handleChange} required />
 
         <label>Password</label>
-        <input style={inputStyle} type="password" name="password"
+        <input style={inputStyle} type="password" name="password" placeholder="Password"
           value={form.password} onChange={handleChange} required />
 
         <button type="submit" style={{

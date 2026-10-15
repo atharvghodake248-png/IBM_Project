@@ -1,52 +1,109 @@
+﻿const fs = require("fs");
+const path = require("path");
 const express = require("express");
-var cors = require('cors')
+const cors = require("cors");
+
 const app = express();
 app.use(cors());
+app.use(express.json());
 
-const dealerslist = require("./utils/dealers.json");
+const DATA_FILE = path.join(__dirname, "utils", "dealers.json");
 
-
-
-app.get("/price/:dealer/:product", function (request, response) {
-  let dealers = dealerslist.dealers;
-  let req_dealer = request.params.dealer;
-  let req_product = request.params.product;
-  let resp = false;
-  dealers.forEach((dealer) => {
-    if(dealer.Dealer === req_dealer) {
-      if(dealer.products[req_product]) {
-        response.send({"message":req_product+" costs "+ dealer.products[req_product]+ " at "+req_dealer});
-        resp = true;
-      } else {
-        response.send({"message":req_product+" is not available with "+ req_dealer});
-        resp = true;
-      }
-    }
-  });
-  if(!resp) {
-    response.send({"message":"The product is not available with this dealer"})
+function readDealerData() {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
+    return Array.isArray(parsed) ? parsed : (parsed.dealers || []);
+  } catch (err) {
+    console.error("Unable to read dealer data:", err.message);
+    return [];
   }
+}
 
-})
+function normalizeDealer(d, index) {
+  return {
+    id: Number(d.id) || index + 1,
+    name: d.name || d.Dealer || d.full_name || "Unnamed dealer",
+    short_name: d.short_name || d.name || d.Dealer || "",
+    city: d.city || "",
+    state: d.state || "",
+    address: d.address || "",
+    zip: d.zip || "",
+    lat: d.lat || "",
+    long: d.long || "",
+    products: d.products || {}
+  };
+}
 
-app.get("/allprice/:product", function (request, response) {
-  let dealers = dealerslist.dealers;
-  let req_product = request.params.product;
-  let priceslist = [];
-  dealers.forEach((dealer) => {
-    if(dealer.products[req_product]) {
-      priceslist.push({key:dealer.Dealer,value:dealer.products[req_product]});
-    }
+app.get("/alldealers", (req, res) => {
+  res.json({ dealers: readDealerData().map(normalizeDealer) });
+});
+
+app.get("/dealerbyid/:id", (req, res) => {
+  const dealer = readDealerData().map(normalizeDealer)
+    .find(d => String(d.id) === String(req.params.id));
+  if (!dealer) return res.status(404).json({ message: "Dealer not found" });
+  res.json(dealer);
+});
+
+app.get("/dealersbyState/:state", (req, res) => {
+  const state = req.params.state.toLowerCase();
+  const dealers = readDealerData().map(normalizeDealer)
+    .filter(d => d.state.toLowerCase() === state);
+  res.json({ dealers });
+});
+
+app.get("/price/:dealer/:product", (req, res) => {
+  const dealer = readDealerData().map(normalizeDealer)
+    .find(d => d.name.toLowerCase() === req.params.dealer.toLowerCase());
+  if (!dealer) return res.status(404).json({ message: "Dealer not found" });
+  const key = Object.keys(dealer.products)
+    .find(k => k.toLowerCase() === req.params.product.toLowerCase());
+  if (!key) return res.json({ message: `${req.params.product} is not available with ${dealer.name}` });
+  res.json({ message: `${key} costs ${dealer.products[key]} at ${dealer.name}` });
+});
+
+app.get("/allprice/:product", (req, res) => {
+  const prices = [];
+  readDealerData().map(normalizeDealer).forEach(d => {
+    const key = Object.keys(d.products)
+      .find(k => k.toLowerCase() === req.params.product.toLowerCase());
+    if (key) prices.push({ key: d.name, value: d.products[key] });
   });
-  if(priceslist.length > 0) {
-    response.send({"prices":priceslist})
-  } else {
-    response.send({"message":"The product is not available with this dealer"})
+  if (!prices.length) return res.status(404).json({ message: "Product not available" });
+  res.json({ prices });
+});
+
+app.post("/login", (req, res) => {
+  const { username, password } = req.body || {};
+  if (username === "testuser" && password === "Test@123") {
+    return res.json({ message: "Login successful", username });
   }
+  res.status(401).json({ message: "Invalid username or password" });
+});
 
-})
+app.post("/logout", (req, res) => res.json({ message: "Logout successful" }));
 
-let port = process.env.PORT || 8080
-app.listen(port, function () {
-  console.log("To view your app, open this link in your browser: http://localhost:" + port);
-})
+app.get("/dealerreviews/:dealerId", (req, res) => {
+  res.json({ dealerId: req.params.dealerId, reviews: [] });
+});
+
+app.get("/getallcarmakes", (req, res) => {
+  res.json({ carMakes: [
+    { make: "Toyota", models: ["Camry", "Corolla"] },
+    { make: "Honda", models: ["Civic", "Accord"] },
+    { make: "Ford", models: ["Mustang", "Focus"] }
+  ] });
+});
+
+app.get("/analyzereview", (req, res) => {
+  const review = String(req.query.review || "").toLowerCase();
+  const positive = ["fantastic", "excellent", "great", "good", "amazing", "helpful", "wonderful"];
+  const negative = ["bad", "poor", "terrible", "awful", "worst", "horrible"];
+  let sentiment = "neutral";
+  if (positive.some(w => review.includes(w))) sentiment = "positive";
+  else if (negative.some(w => review.includes(w))) sentiment = "negative";
+  res.json({ review: req.query.review || "", sentiment });
+});
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => console.log(`Dealer API listening on port ${port}`));

@@ -1,0 +1,40 @@
+{
+  "dealers": [
+    {
+      "Dealer": "Tech City",
+      "id": 1,
+      "city": "Wichita",
+      "state": "Kansas",
+      "address": "",
+      "zip": "",
+      "lat": "",
+      "long": "",
+      "short_name": "Tech City",
+      "products": {}
+    },
+    {
+      "Dealer": "Ez PC",
+      "id": 2,
+      "city": "Topeka",
+      "state": "Kansas",
+      "address": "",
+      "zip": "",
+      "lat": "",
+      "long": "",
+      "short_name": "Ez PC",
+      "products": {}
+    },
+    {
+      "Dealer": "GH Computers",
+      "id": 3,
+      "city": "Austin",
+      "state": "Texas",
+      "address": "",
+      "zip": "",
+      "lat": "",
+      "long": "",
+      "short_name": "GH Computers",
+      "products": {}
+    }
+  ]
+}
