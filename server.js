@@ -151,4 +151,26 @@ app.get("/analyzereview", (req, res) => {
 });
 
 const port = process.env.PORT || 8080;
+
+app.get("/fetchDealer/:dealer_id", (req, res) => {
+  const dealers = readDealerData();
+  const dealer = dealers.find(d => String(d.id) === String(req.params.dealer_id));
+
+  if (!dealer) {
+    return res.status(404).json({ error: "Dealer not found" });
+  }
+
+  res.json({
+    id: Number(dealer.id),
+    city: dealer.city || "",
+    state: dealer.state || "",
+    address: dealer.address || "",
+    zip: dealer.zip || "",
+    lat: dealer.latitude ?? dealer.lat ?? "",
+    long: dealer.longitude ?? dealer.long ?? "",
+    short_name: dealer.short_name || dealer.name || dealer.Dealer || "",
+    full_name: dealer.full_name || dealer.name || dealer.Dealer || ""
+  });
+});
+
 app.listen(port, () => console.log(`Dealer API listening on port ${port}`));
