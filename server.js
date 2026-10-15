@@ -173,4 +173,23 @@ app.get("/fetchDealer/:dealer_id", (req, res) => {
   });
 });
 
+
+app.get("/fetchDealers/:state", (req, res) => {
+  const state = req.params.state.toLowerCase();
+  const dealers = readDealerData()
+    .filter(d => String(d.state || "").toLowerCase() === state)
+    .map((d, index) => ({
+      id: Number(d.id) || index + 1,
+      city: d.city || "",
+      state: d.state || "",
+      address: d.address || "",
+      zip: d.zip || "",
+      lat: d.latitude ?? d.lat ?? "",
+      long: d.longitude ?? d.long ?? "",
+      short_name: d.short_name || d.name || d.Dealer || "",
+      full_name: d.full_name || d.name || d.Dealer || ""
+    }));
+  res.json({ dealers });
+});
+
 app.listen(port, () => console.log(`Dealer API listening on port ${port}`));

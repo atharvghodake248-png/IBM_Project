@@ -1,0 +1,12 @@
+GET command: curl.exe -i http://localhost:3001/fetchDealers/Kansas
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+ETag: W/"15b-fUG3Peumo5/dNQXzRJK/yuzvzUI"
+Date: Thu, 15 Oct 2026 16:46:17 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"dealers":[{"id":1,"city":"Wichita","state":"Kansas","address":"1 Main Street","zip":"67202","lat":37.6872,"long":-97.3301,"short_name":"Tech City","full_name":"Tech City - Wichita"},{"id":2,"city":"Topeka","state":"Kansas","address":"2 Main Street","zip":"66603","lat":39.0473,"long":-95.6752,"short_name":"Ez PC","full_name":"Ez PC - Topeka"}]}
