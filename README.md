@@ -1,67 +1,9 @@
-﻿# Dealership Application
 
-A full-stack dealership application built with Django and Python, with a Node.js/Express backend component.
 
-## Features
+# fullstack_developer_capstone
 
-- Browse dealership records by city and state.
-- View individual dealership details.
-- Register an account and sign in.
-- Submit dealership reviews with ratings.
-- Retrieve dealer and review data through JSON API endpoints.
-- Analyze review text and return a basic sentiment label.
-- Retrieve car make and model examples.
-- Query product prices through the Express pricing service.
+## Project Name
+fullstack_developer_capstone
 
-## Technology Stack
-
-- Python 3.11
-- Django 5.2
-- SQLite
-- Node.js and Express
-- HTML, CSS, JavaScript
-
-## Setup
-
-1. Clone or download this repository.
-2. Open a terminal in the project directory.
-3. Install the Python dependencies:
-
-   ```bash
-   python -m pip install -r requirements.txt
-   ```
-
-4. Apply database migrations:
-
-   ```bash
-   python manage.py migrate
-   ```
-
-5. Start the Django development server:
-
-   ```bash
-   python manage.py runserver
-   ```
-
-6. Open `http://127.0.0.1:8000/` in your browser.
-
-## API Endpoints
-
-| Method | Endpoint | Purpose |
-|---|---|---|
-| GET | `/fetchDealers` | Retrieve dealership records |
-| GET | `/fetchDealer/<dealer_id>` | Retrieve one dealership |
-| GET | `/fetchDealers/<state>` | Filter dealerships by state |
-| GET | `/fetchReviews/dealer/<dealer_id>` | Retrieve reviews for a dealership |
-| GET | `/analyze/<review_text>` | Analyze review sentiment |
-| GET | `/getallcarmakes` | Retrieve example car makes and models |
-
-The project also contains an Express pricing service with `/price/:dealer/:product` and `/allprice/:product` routes.
-
-## Database Notes
-
-Dealerships, users, and reviews are stored using Django models and SQLite. The actual records available depend on the database supplied with the project. Car makes and models in the current API implementation are sample data.
-
-## License
-
-See the `LICENSE` file.
+## Description
+Full Stack Developer Capstone Project - Dealership Application built using Django and frontend technologies.
