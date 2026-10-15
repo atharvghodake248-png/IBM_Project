@@ -3,6 +3,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Dealer, Review
 
@@ -96,18 +97,18 @@ def fetch_car_makes(request):
     ]})
 
 
+@csrf_exempt
 @require_POST
 def django_login(request):
     try:
         data = json.loads(request.body.decode("utf-8") or "{}")
     except (json.JSONDecodeError, UnicodeDecodeError):
-        return JsonResponse(
-            {"userName": "", "status": "Invalid JSON"}, status=400
-        )
+        return JsonResponse({"userName": "", "status": "Invalid JSON"}, status=400)
 
-    username = data.get("username", "")
-    password = data.get("password", "")
+    username = data.get("userName") or data.get("username") or ""
+    password = data.get("password") or ""
     user = authenticate(request, username=username, password=password)
+
     if user is None:
         return JsonResponse(
             {"userName": "", "status": "Invalid credentials"}, status=401
@@ -118,9 +119,8 @@ def django_login(request):
         "userName": user.username,
         "status": "Authenticated",
     })
-
-
 @require_GET
 def django_logout(request):
     logout(request)
     return JsonResponse({"userName": ""})
+
