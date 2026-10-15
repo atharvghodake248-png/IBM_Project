@@ -1,0 +1,32 @@
+﻿name: CI-CD Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check Node.js
+        run: node --version
+
+      - name: Validate package.json
+        run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json is valid')"
+
+      - name: List project files
+        run: ls -la
+
+      - name: Workflow completed
+        run: echo "CI/CD workflow completed successfully"
