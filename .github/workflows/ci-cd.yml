@@ -48,7 +48,7 @@ jobs:
         run: python -m pip install --upgrade pip ruff
 
       - name: Lint Python files
-        run: ruff check . --exclude .git,node_modules,venv,.venv
+        run: ruff check . --exclude .git,node_modules,venv,.venv,migrations,backup_before_api_fix_20261015_195856
 
   lint-javascript:
     name: Lint JavaScript Files
@@ -68,3 +68,4 @@ jobs:
       - name: Lint JavaScript files
         run: |
           npx eslint --no-config-lookup --no-ignore --no-warn-ignored --no-error-on-unmatched-pattern --stdin --stdin-filename server.js < server.js
+
