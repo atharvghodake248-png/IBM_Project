@@ -1,0 +1,7 @@
+﻿<!doctype html><html><head><title>Dealer Details</title></head><body>
+<h1>{{ dealer.name }}</h1><p>City: {{ dealer.city }} | State: {{ dealer.state }}</p>
+<h2>Reviews</h2>
+{% for r in dealer.reviews.all %}<p>{{ r.rating }}/5 — {{ r.text }} ({{ r.user.username }})</p>
+{% empty %}<p>No reviews yet.</p>{% endfor %}
+<a href="/dealers/{{ dealer.id }}/review/">Post Review</a> | <a href="/">Home</a>
+</body></html>

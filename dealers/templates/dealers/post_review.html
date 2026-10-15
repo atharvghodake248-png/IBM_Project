@@ -1,0 +1,7 @@
+﻿<!doctype html><html><head><title>Post Review</title></head><body>
+<h1>Post Review — {{ dealer.name }}</h1>
+<form method="post">{% csrf_token %}
+<label>Rating (1–5)</label><input type="number" name="rating" min="1" max="5" value="5" required>
+<p><label>Review</label><br><textarea name="text" required></textarea></p>
+<button type="submit">Submit Review</button>
+</form></body></html>

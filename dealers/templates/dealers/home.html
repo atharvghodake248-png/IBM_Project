@@ -1,0 +1,16 @@
+﻿<!doctype html>
+<html><head><title>Dealership Application</title></head>
+<body>
+<h1>Dealership Application</h1>
+{% if user.is_authenticated %}<p>Logged in as: {{ user.username }} | <a href="/admin/logout/">Logout</a></p>
+{% else %}<p><a href="/accounts/login/">Login</a></p>{% endif %}
+<h2>Available Dealers</h2>
+<form method="get">Filter by state: <input name="state" value="{{ state }}" placeholder="Kansas"><button>Filter</button></form>
+<table border="1" cellpadding="10">
+<tr><th>Dealer ID</th><th>Dealer Name</th><th>State</th><th>Action</th></tr>
+{% for d in dealers %}
+<tr><td>{{ d.id }}</td><td><a href="/dealers/{{ d.id }}/">{{ d.name }}</a></td><td>{{ d.state }}</td>
+<td><a href="/dealers/{{ d.id }}/review/">Review Dealer</a></td></tr>
+{% empty %}<tr><td colspan="4">No dealers found.</td></tr>{% endfor %}
+</table>
+</body></html>
