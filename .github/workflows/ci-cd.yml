@@ -1,18 +1,19 @@
-```yaml
+
 name: CI-CD Workflow
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   lint-python:
     name: Lint Python Files
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,7 +36,6 @@ jobs:
   lint-javascript:
     name: Lint JavaScript Files
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -64,4 +64,3 @@ jobs:
       - name: Post JavaScript lint result
         if: always()
         run: echo "JavaScript lint job finished with status ${{ job.status }}"
-```
