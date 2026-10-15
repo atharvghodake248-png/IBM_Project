@@ -38,6 +38,23 @@ app.get("/alldealers", (req, res) => {
   res.json({ dealers: readDealerData().map(normalizeDealer) });
 });
 
+app.get("/fetchDealers", (req, res) => {
+  const dealers = readDealerData().map((d, index) => ({
+    id: Number(d.id) || index + 1,
+    short_name: d.short_name || d.name || d.Dealer || "",
+    full_name: d.full_name || d.name || d.Dealer || "",
+    city: d.city || "",
+    state: d.state || "",
+    address: d.address || "",
+    zip: d.zip || "",
+    latitude: d.latitude || d.lat || "",
+    longitude: d.longitude || d.long || ""
+  }));
+
+  res.json({ dealers });
+});
+
+
 app.get("/dealerbyid/:id", (req, res) => {
   const dealer = readDealerData().map(normalizeDealer)
     .find(d => String(d.id) === String(req.params.id));
@@ -83,8 +100,36 @@ app.post("/login", (req, res) => {
 
 app.post("/logout", (req, res) => res.json({ message: "Logout successful" }));
 
-app.get("/dealerreviews/:dealerId", (req, res) => {
-  res.json({ dealerId: req.params.dealerId, reviews: [] });
+const dealerReviews = {
+  1: [
+    {
+      name: "Alex Johnson",
+      purchase: "Purchased a laptop",
+      car_make: "Toyota",
+      car_model: "Camry",
+      car_year: 2022,
+      review: "Good service and helpful staff",
+      rating: 5
+    },
+    {
+      name: "Sam Wilson",
+      purchase: "Purchased a desktop computer",
+      car_make: "Honda",
+      car_model: "Civic",
+      car_year: 2021,
+      review: "Products were delivered on time",
+      rating: 4
+    }
+  ]
+};
+
+app.get("/fetchReviews/dealer/:dealer_id", (req, res) => {
+  const dealerId = req.params.dealer_id;
+
+  res.json({
+    dealerId,
+    reviews: dealerReviews[dealerId] || []
+  });
 });
 
 app.get("/getallcarmakes", (req, res) => {

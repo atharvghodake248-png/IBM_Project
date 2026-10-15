@@ -1,40 +1,854 @@
 {
-  "dealers": [
-    {
-      "Dealer": "Tech City",
-      "id": 1,
-      "city": "Wichita",
-      "state": "Kansas",
-      "address": "",
-      "zip": "",
-      "lat": "",
-      "long": "",
-      "short_name": "Tech City",
-      "products": {}
-    },
-    {
-      "Dealer": "Ez PC",
-      "id": 2,
-      "city": "Topeka",
-      "state": "Kansas",
-      "address": "",
-      "zip": "",
-      "lat": "",
-      "long": "",
-      "short_name": "Ez PC",
-      "products": {}
-    },
-    {
-      "Dealer": "GH Computers",
-      "id": 3,
-      "city": "Austin",
-      "state": "Texas",
-      "address": "",
-      "zip": "",
-      "lat": "",
-      "long": "",
-      "short_name": "GH Computers",
-      "products": {}
-    }
-  ]
+    "dealers":  [
+                    {
+                        "id":  1,
+                        "Dealer":  "Tech City",
+                        "short_name":  "Tech City",
+                        "full_name":  "Tech City - Wichita",
+                        "city":  "Wichita",
+                        "state":  "Kansas",
+                        "address":  "1 Main Street",
+                        "zip":  "67202",
+                        "latitude":  37.6872,
+                        "longitude":  -97.3301,
+                        "lat":  37.6872,
+                        "long":  -97.3301,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  2,
+                        "Dealer":  "Ez PC",
+                        "short_name":  "Ez PC",
+                        "full_name":  "Ez PC - Topeka",
+                        "city":  "Topeka",
+                        "state":  "Kansas",
+                        "address":  "2 Main Street",
+                        "zip":  "66603",
+                        "latitude":  39.0473,
+                        "longitude":  -95.6752,
+                        "lat":  39.0473,
+                        "long":  -95.6752,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  3,
+                        "Dealer":  "GH Computers",
+                        "short_name":  "GH Computers",
+                        "full_name":  "GH Computers - Austin",
+                        "city":  "Austin",
+                        "state":  "Texas",
+                        "address":  "3 Main Street",
+                        "zip":  "78701",
+                        "latitude":  30.2672,
+                        "longitude":  -97.7431,
+                        "lat":  30.2672,
+                        "long":  -97.7431,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  4,
+                        "Dealer":  "Demo Dealer 04",
+                        "short_name":  "Demo Dealer 04",
+                        "full_name":  "Demo Dealer 04 - Dallas",
+                        "city":  "Dallas",
+                        "state":  "Texas",
+                        "address":  "4 Main Street",
+                        "zip":  "75201",
+                        "latitude":  32.7767,
+                        "longitude":  -96.797,
+                        "lat":  32.7767,
+                        "long":  -96.797,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  5,
+                        "Dealer":  "Demo Dealer 05",
+                        "short_name":  "Demo Dealer 05",
+                        "full_name":  "Demo Dealer 05 - Houston",
+                        "city":  "Houston",
+                        "state":  "Texas",
+                        "address":  "5 Main Street",
+                        "zip":  "77002",
+                        "latitude":  29.7604,
+                        "longitude":  -95.3698,
+                        "lat":  29.7604,
+                        "long":  -95.3698,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  6,
+                        "Dealer":  "Demo Dealer 06",
+                        "short_name":  "Demo Dealer 06",
+                        "full_name":  "Demo Dealer 06 - San Antonio",
+                        "city":  "San Antonio",
+                        "state":  "Texas",
+                        "address":  "6 Main Street",
+                        "zip":  "78205",
+                        "latitude":  29.4241,
+                        "longitude":  -98.4936,
+                        "lat":  29.4241,
+                        "long":  -98.4936,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  7,
+                        "Dealer":  "Demo Dealer 07",
+                        "short_name":  "Demo Dealer 07",
+                        "full_name":  "Demo Dealer 07 - Phoenix",
+                        "city":  "Phoenix",
+                        "state":  "Arizona",
+                        "address":  "7 Main Street",
+                        "zip":  "85004",
+                        "latitude":  33.4484,
+                        "longitude":  -112.074,
+                        "lat":  33.4484,
+                        "long":  -112.074,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  8,
+                        "Dealer":  "Demo Dealer 08",
+                        "short_name":  "Demo Dealer 08",
+                        "full_name":  "Demo Dealer 08 - Tucson",
+                        "city":  "Tucson",
+                        "state":  "Arizona",
+                        "address":  "8 Main Street",
+                        "zip":  "85701",
+                        "latitude":  32.2226,
+                        "longitude":  -110.9747,
+                        "lat":  32.2226,
+                        "long":  -110.9747,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  9,
+                        "Dealer":  "Demo Dealer 09",
+                        "short_name":  "Demo Dealer 09",
+                        "full_name":  "Demo Dealer 09 - Denver",
+                        "city":  "Denver",
+                        "state":  "Colorado",
+                        "address":  "9 Main Street",
+                        "zip":  "80202",
+                        "latitude":  39.7392,
+                        "longitude":  -104.9903,
+                        "lat":  39.7392,
+                        "long":  -104.9903,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  10,
+                        "Dealer":  "Demo Dealer 10",
+                        "short_name":  "Demo Dealer 10",
+                        "full_name":  "Demo Dealer 10 - Colorado Springs",
+                        "city":  "Colorado Springs",
+                        "state":  "Colorado",
+                        "address":  "10 Main Street",
+                        "zip":  "80903",
+                        "latitude":  38.8339,
+                        "longitude":  -104.8214,
+                        "lat":  38.8339,
+                        "long":  -104.8214,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  11,
+                        "Dealer":  "Demo Dealer 11",
+                        "short_name":  "Demo Dealer 11",
+                        "full_name":  "Demo Dealer 11 - Chicago",
+                        "city":  "Chicago",
+                        "state":  "Illinois",
+                        "address":  "11 Main Street",
+                        "zip":  "60601",
+                        "latitude":  41.8781,
+                        "longitude":  -87.6298,
+                        "lat":  41.8781,
+                        "long":  -87.6298,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  12,
+                        "Dealer":  "Demo Dealer 12",
+                        "short_name":  "Demo Dealer 12",
+                        "full_name":  "Demo Dealer 12 - Springfield",
+                        "city":  "Springfield",
+                        "state":  "Illinois",
+                        "address":  "12 Main Street",
+                        "zip":  "62701",
+                        "latitude":  39.7817,
+                        "longitude":  -89.6501,
+                        "lat":  39.7817,
+                        "long":  -89.6501,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  13,
+                        "Dealer":  "Demo Dealer 13",
+                        "short_name":  "Demo Dealer 13",
+                        "full_name":  "Demo Dealer 13 - Los Angeles",
+                        "city":  "Los Angeles",
+                        "state":  "California",
+                        "address":  "13 Main Street",
+                        "zip":  "90012",
+                        "latitude":  34.0522,
+                        "longitude":  -118.2437,
+                        "lat":  34.0522,
+                        "long":  -118.2437,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  14,
+                        "Dealer":  "Demo Dealer 14",
+                        "short_name":  "Demo Dealer 14",
+                        "full_name":  "Demo Dealer 14 - San Diego",
+                        "city":  "San Diego",
+                        "state":  "California",
+                        "address":  "14 Main Street",
+                        "zip":  "92101",
+                        "latitude":  32.7157,
+                        "longitude":  -117.1611,
+                        "lat":  32.7157,
+                        "long":  -117.1611,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  15,
+                        "Dealer":  "Demo Dealer 15",
+                        "short_name":  "Demo Dealer 15",
+                        "full_name":  "Demo Dealer 15 - San Jose",
+                        "city":  "San Jose",
+                        "state":  "California",
+                        "address":  "15 Main Street",
+                        "zip":  "95113",
+                        "latitude":  37.3382,
+                        "longitude":  -121.8863,
+                        "lat":  37.3382,
+                        "long":  -121.8863,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  16,
+                        "Dealer":  "Demo Dealer 16",
+                        "short_name":  "Demo Dealer 16",
+                        "full_name":  "Demo Dealer 16 - Sacramento",
+                        "city":  "Sacramento",
+                        "state":  "California",
+                        "address":  "16 Main Street",
+                        "zip":  "95814",
+                        "latitude":  38.5816,
+                        "longitude":  -121.4944,
+                        "lat":  38.5816,
+                        "long":  -121.4944,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  17,
+                        "Dealer":  "Demo Dealer 17",
+                        "short_name":  "Demo Dealer 17",
+                        "full_name":  "Demo Dealer 17 - New York",
+                        "city":  "New York",
+                        "state":  "New York",
+                        "address":  "17 Main Street",
+                        "zip":  "10001",
+                        "latitude":  40.7128,
+                        "longitude":  -74.006,
+                        "lat":  40.7128,
+                        "long":  -74.006,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  18,
+                        "Dealer":  "Demo Dealer 18",
+                        "short_name":  "Demo Dealer 18",
+                        "full_name":  "Demo Dealer 18 - Buffalo",
+                        "city":  "Buffalo",
+                        "state":  "New York",
+                        "address":  "18 Main Street",
+                        "zip":  "14202",
+                        "latitude":  42.8864,
+                        "longitude":  -78.8784,
+                        "lat":  42.8864,
+                        "long":  -78.8784,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  19,
+                        "Dealer":  "Demo Dealer 19",
+                        "short_name":  "Demo Dealer 19",
+                        "full_name":  "Demo Dealer 19 - Seattle",
+                        "city":  "Seattle",
+                        "state":  "Washington",
+                        "address":  "19 Main Street",
+                        "zip":  "98101",
+                        "latitude":  47.6062,
+                        "longitude":  -122.3321,
+                        "lat":  47.6062,
+                        "long":  -122.3321,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  20,
+                        "Dealer":  "Demo Dealer 20",
+                        "short_name":  "Demo Dealer 20",
+                        "full_name":  "Demo Dealer 20 - Spokane",
+                        "city":  "Spokane",
+                        "state":  "Washington",
+                        "address":  "20 Main Street",
+                        "zip":  "99201",
+                        "latitude":  47.6588,
+                        "longitude":  -117.426,
+                        "lat":  47.6588,
+                        "long":  -117.426,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  21,
+                        "Dealer":  "Demo Dealer 21",
+                        "short_name":  "Demo Dealer 21",
+                        "full_name":  "Demo Dealer 21 - Portland",
+                        "city":  "Portland",
+                        "state":  "Oregon",
+                        "address":  "21 Main Street",
+                        "zip":  "97204",
+                        "latitude":  45.5152,
+                        "longitude":  -122.6784,
+                        "lat":  45.5152,
+                        "long":  -122.6784,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  22,
+                        "Dealer":  "Demo Dealer 22",
+                        "short_name":  "Demo Dealer 22",
+                        "full_name":  "Demo Dealer 22 - Salem",
+                        "city":  "Salem",
+                        "state":  "Oregon",
+                        "address":  "22 Main Street",
+                        "zip":  "97301",
+                        "latitude":  44.9429,
+                        "longitude":  -123.0351,
+                        "lat":  44.9429,
+                        "long":  -123.0351,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  23,
+                        "Dealer":  "Demo Dealer 23",
+                        "short_name":  "Demo Dealer 23",
+                        "full_name":  "Demo Dealer 23 - Miami",
+                        "city":  "Miami",
+                        "state":  "Florida",
+                        "address":  "23 Main Street",
+                        "zip":  "33130",
+                        "latitude":  25.7617,
+                        "longitude":  -80.1918,
+                        "lat":  25.7617,
+                        "long":  -80.1918,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  24,
+                        "Dealer":  "Demo Dealer 24",
+                        "short_name":  "Demo Dealer 24",
+                        "full_name":  "Demo Dealer 24 - Orlando",
+                        "city":  "Orlando",
+                        "state":  "Florida",
+                        "address":  "24 Main Street",
+                        "zip":  "32801",
+                        "latitude":  28.5383,
+                        "longitude":  -81.3792,
+                        "lat":  28.5383,
+                        "long":  -81.3792,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  25,
+                        "Dealer":  "Demo Dealer 25",
+                        "short_name":  "Demo Dealer 25",
+                        "full_name":  "Demo Dealer 25 - Tampa",
+                        "city":  "Tampa",
+                        "state":  "Florida",
+                        "address":  "25 Main Street",
+                        "zip":  "33602",
+                        "latitude":  27.9506,
+                        "longitude":  -82.4572,
+                        "lat":  27.9506,
+                        "long":  -82.4572,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  26,
+                        "Dealer":  "Demo Dealer 26",
+                        "short_name":  "Demo Dealer 26",
+                        "full_name":  "Demo Dealer 26 - Atlanta",
+                        "city":  "Atlanta",
+                        "state":  "Georgia",
+                        "address":  "26 Main Street",
+                        "zip":  "30303",
+                        "latitude":  33.749,
+                        "longitude":  -84.388,
+                        "lat":  33.749,
+                        "long":  -84.388,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  27,
+                        "Dealer":  "Demo Dealer 27",
+                        "short_name":  "Demo Dealer 27",
+                        "full_name":  "Demo Dealer 27 - Savannah",
+                        "city":  "Savannah",
+                        "state":  "Georgia",
+                        "address":  "27 Main Street",
+                        "zip":  "31401",
+                        "latitude":  32.0809,
+                        "longitude":  -81.0912,
+                        "lat":  32.0809,
+                        "long":  -81.0912,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  28,
+                        "Dealer":  "Demo Dealer 28",
+                        "short_name":  "Demo Dealer 28",
+                        "full_name":  "Demo Dealer 28 - Charlotte",
+                        "city":  "Charlotte",
+                        "state":  "North Carolina",
+                        "address":  "28 Main Street",
+                        "zip":  "28202",
+                        "latitude":  35.2271,
+                        "longitude":  -80.8431,
+                        "lat":  35.2271,
+                        "long":  -80.8431,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  29,
+                        "Dealer":  "Demo Dealer 29",
+                        "short_name":  "Demo Dealer 29",
+                        "full_name":  "Demo Dealer 29 - Raleigh",
+                        "city":  "Raleigh",
+                        "state":  "North Carolina",
+                        "address":  "29 Main Street",
+                        "zip":  "27601",
+                        "latitude":  35.7796,
+                        "longitude":  -78.6382,
+                        "lat":  35.7796,
+                        "long":  -78.6382,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  30,
+                        "Dealer":  "Demo Dealer 30",
+                        "short_name":  "Demo Dealer 30",
+                        "full_name":  "Demo Dealer 30 - Nashville",
+                        "city":  "Nashville",
+                        "state":  "Tennessee",
+                        "address":  "30 Main Street",
+                        "zip":  "37201",
+                        "latitude":  36.1627,
+                        "longitude":  -86.7816,
+                        "lat":  36.1627,
+                        "long":  -86.7816,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  31,
+                        "Dealer":  "Demo Dealer 31",
+                        "short_name":  "Demo Dealer 31",
+                        "full_name":  "Demo Dealer 31 - Memphis",
+                        "city":  "Memphis",
+                        "state":  "Tennessee",
+                        "address":  "31 Main Street",
+                        "zip":  "38103",
+                        "latitude":  35.1495,
+                        "longitude":  -90.049,
+                        "lat":  35.1495,
+                        "long":  -90.049,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  32,
+                        "Dealer":  "Demo Dealer 32",
+                        "short_name":  "Demo Dealer 32",
+                        "full_name":  "Demo Dealer 32 - Indianapolis",
+                        "city":  "Indianapolis",
+                        "state":  "Indiana",
+                        "address":  "32 Main Street",
+                        "zip":  "46204",
+                        "latitude":  39.7684,
+                        "longitude":  -86.1581,
+                        "lat":  39.7684,
+                        "long":  -86.1581,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  33,
+                        "Dealer":  "Demo Dealer 33",
+                        "short_name":  "Demo Dealer 33",
+                        "full_name":  "Demo Dealer 33 - Columbus",
+                        "city":  "Columbus",
+                        "state":  "Ohio",
+                        "address":  "33 Main Street",
+                        "zip":  "43215",
+                        "latitude":  39.9612,
+                        "longitude":  -82.9988,
+                        "lat":  39.9612,
+                        "long":  -82.9988,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  34,
+                        "Dealer":  "Demo Dealer 34",
+                        "short_name":  "Demo Dealer 34",
+                        "full_name":  "Demo Dealer 34 - Cleveland",
+                        "city":  "Cleveland",
+                        "state":  "Ohio",
+                        "address":  "34 Main Street",
+                        "zip":  "44114",
+                        "latitude":  41.4993,
+                        "longitude":  -81.6944,
+                        "lat":  41.4993,
+                        "long":  -81.6944,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  35,
+                        "Dealer":  "Demo Dealer 35",
+                        "short_name":  "Demo Dealer 35",
+                        "full_name":  "Demo Dealer 35 - Detroit",
+                        "city":  "Detroit",
+                        "state":  "Michigan",
+                        "address":  "35 Main Street",
+                        "zip":  "48226",
+                        "latitude":  42.3314,
+                        "longitude":  -83.0458,
+                        "lat":  42.3314,
+                        "long":  -83.0458,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  36,
+                        "Dealer":  "Demo Dealer 36",
+                        "short_name":  "Demo Dealer 36",
+                        "full_name":  "Demo Dealer 36 - Milwaukee",
+                        "city":  "Milwaukee",
+                        "state":  "Wisconsin",
+                        "address":  "36 Main Street",
+                        "zip":  "53202",
+                        "latitude":  43.0389,
+                        "longitude":  -87.9065,
+                        "lat":  43.0389,
+                        "long":  -87.9065,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  37,
+                        "Dealer":  "Demo Dealer 37",
+                        "short_name":  "Demo Dealer 37",
+                        "full_name":  "Demo Dealer 37 - Minneapolis",
+                        "city":  "Minneapolis",
+                        "state":  "Minnesota",
+                        "address":  "37 Main Street",
+                        "zip":  "55401",
+                        "latitude":  44.9778,
+                        "longitude":  -93.265,
+                        "lat":  44.9778,
+                        "long":  -93.265,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  38,
+                        "Dealer":  "Demo Dealer 38",
+                        "short_name":  "Demo Dealer 38",
+                        "full_name":  "Demo Dealer 38 - Des Moines",
+                        "city":  "Des Moines",
+                        "state":  "Iowa",
+                        "address":  "38 Main Street",
+                        "zip":  "50309",
+                        "latitude":  41.5868,
+                        "longitude":  -93.625,
+                        "lat":  41.5868,
+                        "long":  -93.625,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  39,
+                        "Dealer":  "Demo Dealer 39",
+                        "short_name":  "Demo Dealer 39",
+                        "full_name":  "Demo Dealer 39 - Omaha",
+                        "city":  "Omaha",
+                        "state":  "Nebraska",
+                        "address":  "39 Main Street",
+                        "zip":  "68102",
+                        "latitude":  41.2565,
+                        "longitude":  -95.9345,
+                        "lat":  41.2565,
+                        "long":  -95.9345,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  40,
+                        "Dealer":  "Demo Dealer 40",
+                        "short_name":  "Demo Dealer 40",
+                        "full_name":  "Demo Dealer 40 - Oklahoma City",
+                        "city":  "Oklahoma City",
+                        "state":  "Oklahoma",
+                        "address":  "40 Main Street",
+                        "zip":  "73102",
+                        "latitude":  35.4676,
+                        "longitude":  -97.5164,
+                        "lat":  35.4676,
+                        "long":  -97.5164,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  41,
+                        "Dealer":  "Demo Dealer 41",
+                        "short_name":  "Demo Dealer 41",
+                        "full_name":  "Demo Dealer 41 - Little Rock",
+                        "city":  "Little Rock",
+                        "state":  "Arkansas",
+                        "address":  "41 Main Street",
+                        "zip":  "72201",
+                        "latitude":  34.7465,
+                        "longitude":  -92.2896,
+                        "lat":  34.7465,
+                        "long":  -92.2896,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  42,
+                        "Dealer":  "Demo Dealer 42",
+                        "short_name":  "Demo Dealer 42",
+                        "full_name":  "Demo Dealer 42 - New Orleans",
+                        "city":  "New Orleans",
+                        "state":  "Louisiana",
+                        "address":  "42 Main Street",
+                        "zip":  "70112",
+                        "latitude":  29.9511,
+                        "longitude":  -90.0715,
+                        "lat":  29.9511,
+                        "long":  -90.0715,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  43,
+                        "Dealer":  "Demo Dealer 43",
+                        "short_name":  "Demo Dealer 43",
+                        "full_name":  "Demo Dealer 43 - Jackson",
+                        "city":  "Jackson",
+                        "state":  "Mississippi",
+                        "address":  "43 Main Street",
+                        "zip":  "39201",
+                        "latitude":  32.2988,
+                        "longitude":  -90.1848,
+                        "lat":  32.2988,
+                        "long":  -90.1848,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  44,
+                        "Dealer":  "Demo Dealer 44",
+                        "short_name":  "Demo Dealer 44",
+                        "full_name":  "Demo Dealer 44 - Birmingham",
+                        "city":  "Birmingham",
+                        "state":  "Alabama",
+                        "address":  "44 Main Street",
+                        "zip":  "35203",
+                        "latitude":  33.5186,
+                        "longitude":  -86.8104,
+                        "lat":  33.5186,
+                        "long":  -86.8104,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  45,
+                        "Dealer":  "Demo Dealer 45",
+                        "short_name":  "Demo Dealer 45",
+                        "full_name":  "Demo Dealer 45 - Louisville",
+                        "city":  "Louisville",
+                        "state":  "Kentucky",
+                        "address":  "45 Main Street",
+                        "zip":  "40202",
+                        "latitude":  38.2527,
+                        "longitude":  -85.7585,
+                        "lat":  38.2527,
+                        "long":  -85.7585,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  46,
+                        "Dealer":  "Demo Dealer 46",
+                        "short_name":  "Demo Dealer 46",
+                        "full_name":  "Demo Dealer 46 - St. Louis",
+                        "city":  "St. Louis",
+                        "state":  "Missouri",
+                        "address":  "46 Main Street",
+                        "zip":  "63101",
+                        "latitude":  38.627,
+                        "longitude":  -90.1994,
+                        "lat":  38.627,
+                        "long":  -90.1994,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  47,
+                        "Dealer":  "Demo Dealer 47",
+                        "short_name":  "Demo Dealer 47",
+                        "full_name":  "Demo Dealer 47 - Pittsburgh",
+                        "city":  "Pittsburgh",
+                        "state":  "Pennsylvania",
+                        "address":  "47 Main Street",
+                        "zip":  "15222",
+                        "latitude":  40.4406,
+                        "longitude":  -79.9959,
+                        "lat":  40.4406,
+                        "long":  -79.9959,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  48,
+                        "Dealer":  "Demo Dealer 48",
+                        "short_name":  "Demo Dealer 48",
+                        "full_name":  "Demo Dealer 48 - Philadelphia",
+                        "city":  "Philadelphia",
+                        "state":  "Pennsylvania",
+                        "address":  "48 Main Street",
+                        "zip":  "19107",
+                        "latitude":  39.9526,
+                        "longitude":  -75.1652,
+                        "lat":  39.9526,
+                        "long":  -75.1652,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  49,
+                        "Dealer":  "Demo Dealer 49",
+                        "short_name":  "Demo Dealer 49",
+                        "full_name":  "Demo Dealer 49 - Boston",
+                        "city":  "Boston",
+                        "state":  "Massachusetts",
+                        "address":  "49 Main Street",
+                        "zip":  "02108",
+                        "latitude":  42.3601,
+                        "longitude":  -71.0589,
+                        "lat":  42.3601,
+                        "long":  -71.0589,
+                        "products":  {
+
+                                     }
+                    },
+                    {
+                        "id":  50,
+                        "Dealer":  "Demo Dealer 50",
+                        "short_name":  "Demo Dealer 50",
+                        "full_name":  "Demo Dealer 50 - Las Vegas",
+                        "city":  "Las Vegas",
+                        "state":  "Nevada",
+                        "address":  "50 Main Street",
+                        "zip":  "89101",
+                        "latitude":  36.1699,
+                        "longitude":  -115.1398,
+                        "lat":  36.1699,
+                        "long":  -115.1398,
+                        "products":  {
+
+                                     }
+                    }
+                ]
 }
