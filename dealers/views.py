@@ -1,6 +1,6 @@
 ﻿from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login
 from django.views.decorators.http import require_POST
 from .models import Dealer, Review
@@ -27,7 +27,10 @@ def post_review(request, dealer_id):
     dealer = get_object_or_404(Dealer, pk=dealer_id)
     if request.method == "POST":
         text = request.POST.get("text", "").strip()
-        rating = int(request.POST.get("rating", "5"))
+        try:
+            rating = int(request.POST.get("rating", "5"))
+        except ValueError:
+            rating = 0
         if text and 1 <= rating <= 5:
             Review.objects.create(dealer=dealer, user=request.user, text=text, rating=rating)
             return redirect("dealer_detail", dealer_id=dealer.id)
@@ -39,3 +42,11 @@ def sign_in(request):
         login(request, form.get_user())
         return redirect("home")
     return render(request, "dealers/login.html", {"form": form})
+
+def register(request):
+    form = UserCreationForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        user = form.save()
+        login(request, user)
+        return redirect("home")
+    return render(request, "dealers/register.html", {"form": form})
