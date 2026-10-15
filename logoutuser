@@ -1,0 +1,8 @@
+﻿cURL Command:
+curl.exe -sS -i -X GET http://localhost:8000/djangoapp/logout
+
+Output:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"userName": ""}
